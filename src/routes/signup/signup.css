@@ -1,0 +1,35 @@
+.signUpPageContainer{
+    width: 90%;
+    margin: 0 auto;
+    
+}
+.signUpPageContainer h1{
+    margin: 30px 100px;
+    color: #0d47a1;
+    font-size: 45px;
+    width: 100%;
+
+}
+.signupFormAndInfoContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    }
+.signupFormAndInfoContainer img{
+    width: 35%;    
+}
+
+@media (max-width:768px){
+    .signUpPageContainer h1{
+        margin: 10px auto;
+        text-align: center;
+        
+    
+    }
+    .signupFormAndInfoContainer img{
+        display: block;  
+        width: 95%;
+        margin: 0 auto;
+          
+    }
+}

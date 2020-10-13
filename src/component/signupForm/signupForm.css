@@ -1,0 +1,47 @@
+#signUpForm {
+	width: 50%;
+	display: block;
+	margin: 0 auto;
+}
+#signUpForm div {
+	width: 90%;
+}
+#signUpForm #selectGender {
+	transform: translateY(8px);
+	max-width: 200px;
+}
+.signupbtn {
+	margin-top: 30px;
+	display: block;
+	padding: 10px;
+	padding-bottom: 15px;
+	width: 150px;
+	background-color: #0d47a1;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: medium;
+	cursor: pointer;
+}
+.signupbtn:hover {
+	background-color: #3465ad;
+}
+.signupbtn i {
+	transform: translateY(7.5px);
+}
+
+@media (max-width: 768px) {
+	#signUpForm {
+		width: 100%;
+		display: block;
+		margin: 0 auto;
+	}
+	#signUpForm #selectGender {
+		margin-left: 12px;
+	}
+	#signUpForm div {
+		width: 98%;
+
+		max-width: 290px !important;
+	}
+}
