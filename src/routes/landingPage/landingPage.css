@@ -9,44 +9,7 @@ body {
 	);
 }
 
-.landingPageNavBar {
-	display: flex;
-	justify-content: space-between;
-	width: 90%;
-	margin: 20px auto;
-}
-.landingPageNavBarMobile {
-	display: none;
-}
 
-.landingPageNavBar ul {
-	list-style: none;
-	display: flex;
-	justify-content: space-evenly;
-	width: 300px;
-	background: transparent;
-}
-.landingPageNavBar ul li {
-	margin-left: 50px;
-	background-color: transparent;
-	font-size: 20px;
-	cursor: pointer;
-}
-.landingPageNavBar button {
-	border: 2px solid rgb(48, 129, 195);
-	border-radius: 10px;
-	width: 100px;
-	height: 40px;
-	background-color: transparent;
-	color: rgb(13, 96, 165);
-	font-weight: bold;
-	cursor: pointer;
-}
-.landingPageNavBar button:hover {
-	background-color: rgb(49, 102, 144);
-	color: white;
-	border: none;
-}
 .heading {
 	width: 90%;
 	display: flex;

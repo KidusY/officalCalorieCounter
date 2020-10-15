@@ -1,0 +1,139 @@
+.calorieCouterPage {
+	background: #6890bd8f;
+	background: linear-gradient(90deg, rgba(105, 166, 202, 0.897) 14%, rgb(57, 119, 138) 100%);
+	height: 50vh;
+	border-bottom-left-radius: 50px;
+}
+.calorieCounterHeader {
+	width: 100%;
+    color: rgb(251, 251, 251);
+    padding: 20px 50px;
+   
+}
+
+.calenderSection{
+    width:90%;
+    padding: 20px;    
+    display:block;
+    margin:0 auto;
+    text-align: center;
+    height: 80px;
+
+}
+.calenderSection i{
+  color: white;
+  font-size:50px ;
+  cursor: pointer;
+
+}
+.calenderSection h2{
+color: white;
+padding: 10px;
+
+
+}
+.calorieCounterInfoContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 95%;
+	margin: 30px auto;
+	color: white;
+}
+
+.blockOneContainer {
+	display: block;
+	width: 50%;
+	height: 300px;
+	background: rgb(255, 245, 240);
+	background: linear-gradient(41deg, rgba(255, 245, 240, 1) 14%, rgba(231, 227, 255, 1) 100%);
+	color: black;
+	padding: 70px 40px;
+	border-radius: 15px;
+	box-shadow: 2px 2px 2px rgba(17, 17, 17, 0.527);
+}
+.blockTwoContainer {
+	display: block;
+	width: 50%;
+	max-width: 400px;
+    min-height: 300px;
+    height: auto;
+	background: rgb(255, 245, 240);
+	padding-bottom:50px ;
+	color: black;	
+	box-shadow: 2px 2px 2px rgba(17, 17, 17, 0.527);
+}
+
+.blockOne {
+	display: flex;
+	justify-content: space-between;
+}
+.blockTwo h3{
+    background-color:#6890bd8f ;
+    width:50%;
+    padding:10px
+	
+}
+.blockTwo .nutritionInfo{
+   display: flex;
+   justify-content: space-between;
+    padding:5px 10px
+	
+}
+.blockTwo div p{
+   width: 80%;
+	
+}
+.mealInfoContainer{
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.mealInfo .mealHeader{
+    display: flex;
+    justify-content: space-between;
+    background-color: #e7e5e59a;
+    margin: 50px auto;
+    height: 50px;
+    
+
+}   
+.mealInfo .mealHeader div{
+    display: flex;
+    width: 20%;
+    min-width: 100px;
+    justify-content: space-between;
+
+} 
+.mealHeader h3 {
+   line-height: 2.5;
+    background-color: #6890bd8f;
+    color: rgb(240, 240, 240);
+    padding: 0 20px;
+    width:150px
+}
+.mealHeader h4 {
+   line-height: 2.5;
+   margin-right: 20px;
+}
+
+.meals h4{
+    width: 90%;
+    padding: 15px;
+}  
+.meals hr{
+    color: rgba(245, 245, 245, 0.609)
+}  
+.meals h4 span{
+   float: right;
+}
+
+@media (max-width: 768px) {
+	.blockOneContainer {
+		width: 100%;
+	}
+	.blockTwoContainer {
+		width: 100%;
+	}
+}
