@@ -1,10 +1,85 @@
 import React, { Component } from 'react';
 import Nav from '../../component/nav/navBar';
+import MealForm from '../../component/mealsForm/mealsForm';
+import $ from 'jquery';
+import Meal from '../../component/meals/meals';
 import { ProgressBar } from 'react-bootstrap';
 
 import './homePage.css';
 export default class homePage extends Component {
-	state = {};
+	state = {
+		showMealsForm: false,
+		nutritionInputShow: false,
+		Meals: [],
+		MealsByType: {
+			Breakfast: [],
+			Lunch: [],
+			Dinner: []
+		}
+	};
+
+	activeMealsFormModula = () => {
+		
+		if (!this.state.showMealsForm)
+			$('.calorieCouterPage div:not(#mealsForm)').css({ filter: 'brightness(0.5) grayscale(3) blur(2px)' });
+		else $('.calorieCouterPage div:not(#mealsForm)').css({ filter: 'none' });
+		this.setState({ showMealsForm: !this.state.showMealsForm });
+	};
+	showMoreInputForNutrition = () => {
+		this.setState({ nutritionInputShow: !this.state.nutritionInputShow });
+	};
+
+	getMealInfo = (ev) => {
+		ev.preventDefault();
+		const { MealName, MealType } = ev.target;
+		const MealInfo = {
+			MealName: MealName.value,
+			MealType: MealType.value
+		};
+
+		const currentMeals = this.state.Meals;
+		currentMeals.push(MealInfo);
+		this.setState({ Meals: currentMeals });
+
+		this.activeMealsFormModula();
+		this.sortMealsByType();
+	};
+
+	deleteMeal = (mealName, mealType) => {
+		let mealByType={
+			Breakfast: [],
+			Lunch: [],
+			Dinner: []
+		};
+		if(mealType === 'breakfast')
+		mealByType.Breakfast = this.state.MealsByType.Breakfast.filter((meal) => mealName !== meal.MealName);
+		else if(mealType === 'lunch')
+		mealByType.Lunch =  this.state.MealsByType.Lunch.filter((meal) => mealName !== meal.MealName);
+		else
+		mealByType.Dinner = this.state.MealsByType.Lunch.filter((meal) => mealName !== meal.MealName);
+
+		console.log(mealByType);
+
+		this.setState({MealsByType:mealByType })
+		
+		
+	};
+
+	sortMealsByType = () => {
+		const MealType = {
+			Breakfast: [],
+			Lunch: [],
+			Dinner: []
+		};
+
+		this.state.Meals.map((meal) => {
+			if (meal.MealType === 'breakfast') MealType.Breakfast.push(meal);
+			else if (meal.MealType === 'lunch') MealType.Lunch.push(meal);
+			else MealType.Dinner.push(meal);
+		});
+
+		this.setState({ MealsByType: MealType });
+	};
 
 	render() {
 		const now = 60;
@@ -29,8 +104,8 @@ export default class homePage extends Component {
 							<h2> Calories Consumed </h2>
 							<h2> 1000 Cal </h2>
 						</div>
-                        <ProgressBar now={now} variant="info" label={`${now}%`} />
-                        <h5> Recommended Daily consumption : 2000 cal </h5>
+						<ProgressBar now={now} variant="info" label={`${now}%`} />
+						<h5> Recommended Daily consumption : 2000 cal </h5>
 					</div>
 					<div className="blockTwoContainer">
 						<div className="blockTwo">
@@ -39,33 +114,39 @@ export default class homePage extends Component {
 								Calories
 								<span> 100 /200 </span>
 							</div>
-							<ProgressBar now={now} variant="info" label={`${now}%`} />
-							<div className="nutritionInfo">
-								Protein
-								<span> 100 /200 </span>
-							</div>
-							<ProgressBar now={now} variant="info" label={`${now}%`} />
-							<div className="nutritionInfo">
-								Fat
-								<span> 100 / 200 </span>
-							</div>
-							<ProgressBar now={now} variant="info" label={`${now}%`} />
+							<div className="nutritionInfoContainer">
+								<ProgressBar now={now} variant="info" label={`${now}%`} />
+								<div className="nutritionInfo">
+									Protein
+									<span> 100 /200 </span>
+								</div>
+								<ProgressBar now={now} variant="info" label={`${now}%`} />
+								<div className="nutritionInfo">
+									Fat
+									<span> 100 / 200 </span>
+								</div>
+								<ProgressBar now={now} variant="info" label={`${now}%`} />
 
-							<div className="nutritionInfo">
-								Carbs
-								<span> 100 / 200</span>
+								<div className="nutritionInfo">
+									Carbs
+									<span> 100 / 200</span>
+								</div>
+								<ProgressBar now={now} variant="info" label={`${now}%`} />
+								<div className="nutritionInfo">
+									Fiber
+									<span> 100 / 200 </span>
+								</div>
+								<ProgressBar now={now} variant="info" label={`${now}%`} />
 							</div>
-							<ProgressBar now={now} variant="info" label={`${now}%`} />
-							<div className="nutritionInfo">
-								Fiber
-								<span> 100 / 200 </span>
-							</div>
-							<ProgressBar now={now} variant="info" label={`${now}%`} />
 						</div>
 					</div>
 				</div>
 
 				<div className="mealInfoContainer">
+				<i className="material-icons" onClick={() => this.activeMealsFormModula()}>
+								playlist_add
+							</i>
+							<br/>
 					<div className="breakFastInfo mealInfo">
 						<div className="mealHeader">
 							<h3>BREAKFAST </h3>
@@ -75,13 +156,15 @@ export default class homePage extends Component {
 							</div>
 						</div>
 						<div className="meals">
-							<h4>
-								Pancakes <span> Delete</span>
-							</h4>
-							<hr />
-							<h4>
-								Coffee <span> Delete</span>
-							</h4>
+							
+
+							{this.state.MealsByType.Breakfast.length ? (
+								this.state.MealsByType.Breakfast.map((meal) => (
+									<Meal mealInfo={meal} deleteMeal={this.deleteMeal} />
+								))
+							) : (
+								<div />
+							)}
 						</div>
 					</div>
 					<div className="lunchInfo mealInfo">
@@ -94,13 +177,13 @@ export default class homePage extends Component {
 						</div>
 
 						<div className="meals">
-							<h4>
-								Pancakes <span> Delete</span>
-							</h4>
-							<hr />
-							<h4>
-								Coffee <span> Delete</span>
-							</h4>
+							{this.state.MealsByType.Lunch.length ? (
+								this.state.MealsByType.Lunch.map((meal) => (
+									<Meal mealInfo={meal} deleteMeal={this.deleteMeal} />
+								))
+							) : (
+								<div />
+							)}
 						</div>
 					</div>
 					<div className="dinnerInfo mealInfo">
@@ -113,16 +196,28 @@ export default class homePage extends Component {
 						</div>
 
 						<div className="meals">
-							<h4>
-								Pancakes <span> Delete</span>
-							</h4>
-							<hr />
-							<h4>
-								Coffee <span> Delete</span>
-							</h4>
+							
+							{this.state.MealsByType.Dinner.length ? (
+								this.state.MealsByType.Dinner.map((meal) => (
+									<Meal mealInfo={meal} deleteMeal={this.deleteMeal} />
+								))
+							) : (
+								<div />
+							)}
 						</div>
 					</div>
 				</div>
+
+				{this.state.showMealsForm ? (
+					<MealForm
+						activeMealsFormModula={this.activeMealsFormModula}
+						showMoreInputForNutrition={this.showMoreInputForNutrition}
+						nutritionInputShow={this.state.nutritionInputShow}
+						getMealInfo={this.getMealInfo}
+					/>
+				) : (
+					<div />
+				)}
 			</div>
 		);
 	}

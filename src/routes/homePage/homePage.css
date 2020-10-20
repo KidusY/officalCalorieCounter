@@ -6,31 +6,26 @@
 }
 .calorieCounterHeader {
 	width: 100%;
-    color: rgb(251, 251, 251);
-    padding: 20px 50px;
-   
+	color: rgb(251, 251, 251);
+	padding: 20px 50px;
 }
 
-.calenderSection{
-    width:90%;
-    padding: 20px;    
-    display:block;
-    margin:0 auto;
-    text-align: center;
-    height: 80px;
-
+.calenderSection {
+	width: 90%;
+	padding: 20px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	height: 80px;
 }
-.calenderSection i{
-  color: white;
-  font-size:50px ;
-  cursor: pointer;
-
+.calenderSection i {
+	color: white;
+	font-size: 50px;
+	cursor: pointer;
 }
-.calenderSection h2{
-color: white;
-padding: 10px;
-
-
+.calenderSection h2 {
+	color: white;
+	padding: 10px;
 }
 .calorieCounterInfoContainer {
 	display: flex;
@@ -56,11 +51,11 @@ padding: 10px;
 	display: block;
 	width: 50%;
 	max-width: 400px;
-    min-height: 300px;
-    height: auto;
+	min-height: 300px;
+	height: auto;
 	background: rgb(255, 245, 240);
-	padding-bottom:50px ;
-	color: black;	
+	padding-bottom: 50px;
+	color: black;
 	box-shadow: 2px 2px 2px rgba(17, 17, 17, 0.527);
 }
 
@@ -68,65 +63,86 @@ padding: 10px;
 	display: flex;
 	justify-content: space-between;
 }
-.blockTwo h3{
-    background-color:#6890bd8f ;
-    width:50%;
-    padding:10px
-	
+.blockTwo h3 {
+	background-color: #6890bd8f;
+	width: 50%;
+	padding: 10px;
 }
-.blockTwo .nutritionInfo{
-   display: flex;
-   justify-content: space-between;
-    padding:5px 10px
-	
+.blockTwo .nutritionInfo {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 10px;
 }
-.blockTwo div p{
-   width: 80%;
-	
+.blockTwo .nutritionInfoContainer {
+	padding: 0 10px;
 }
-.mealInfoContainer{
-    width: 90%;
-    margin: 0 auto;
-
+.blockTwo div p {
+	width: 80%;
+}
+.mealInfoContainer {
+	width: 90%;
+	margin: 0 auto;
 }
 
-.mealInfo .mealHeader{
-    display: flex;
-    justify-content: space-between;
-    background-color: #e7e5e59a;
-    margin: 50px auto;
-    height: 50px;
-    
-
-}   
-.mealInfo .mealHeader div{
-    display: flex;
-    width: 20%;
-    min-width: 100px;
-    justify-content: space-between;
-
-} 
+.mealInfo .mealHeader {
+	display: flex;
+	justify-content: space-between;
+	background-color: #e7e5e59a;
+	margin: 50px auto;
+	height: 50px;
+}
+.mealInfo .mealHeader div {
+	display: flex;
+	width: 20%;
+	min-width: 100px;
+	justify-content: space-between;
+}
 .mealHeader h3 {
-   line-height: 2.5;
-    background-color: #6890bd8f;
-    color: rgb(240, 240, 240);
-    padding: 0 20px;
-    width:150px
+	line-height: 1.7;
+	background-color: #6890bd8f;
+	color: rgb(240, 240, 240);
+	padding: 0 20px;
+	width: 200px;
+	height: 100%;
 }
 .mealHeader h4 {
-   line-height: 2.5;
-   margin-right: 20px;
+	line-height: 2.3;
+	margin-right: 20px;
+	font-size: 20px;
+	color: rgb(53, 53, 53);
+	cursor: pointer;
+	transition: ease-in 2.5ms;
 }
-
-.meals h4{
-    width: 90%;
-    padding: 15px;
-}  
-.meals hr{
-    color: rgba(245, 245, 245, 0.609)
-}  
-.meals h4 span{
-   float: right;
+.mealHeader h4:hover {
+	color: rgb(0, 74, 117);
+	font-weight: 600;
+	transition: ease-in 2.5ms;
+}
+.mealInfoContainer i {
+    float: right;
+    font-size: 35px;
+	cursor: pointer;
+	margin: 10px 0;
+}
+.mealInfoContainer i:hover {
+    transform: scale(1.1);
+}
+.meals h4 {
+	width: 90%;
+	padding: 15px;
+}
+.meals h4 i{
+    color: #c62828;
+    cursor: pointer;
+}
+.meals h4 i:hover{
+    transform: scale(1.1);
+}
+.meals hr {
+	color: rgba(245, 245, 245, 0.609);
+}
+.meals h4 span {
+	float: right;
 }
 
 @media (max-width: 768px) {

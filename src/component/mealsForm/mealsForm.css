@@ -1,0 +1,52 @@
+#mealsForm{
+	position: absolute;
+	top:40%;
+	left: 40%;
+	width: 350px;
+	padding: 10px;
+	border-radius: 10px;
+	color: white;
+
+	background-color: rgb(86, 173, 199);
+}
+#mealsForm i{
+float: right;
+cursor: pointer;
+}
+#mealsForm div{
+margin: 10px auto;
+display: block;
+}
+#mealsForm div button{
+	margin: 0 auto;
+	display: block;
+	width: 100px;
+	background: transparent;
+	border: 1px solid white ;
+	text-align: center;
+	padding:2px;
+	color: white;
+	border-radius: 10px;
+	
+}
+#mealsForm input{
+	color: white;
+}
+.MuiList-root{
+	background-color:rgb(86, 173, 199);
+	color: white;
+}
+.MuiSelect-root{
+	color: white;
+}
+#checkBoxForNutrition{
+	cursor: pointer;
+	margin-left: 10px;
+}
+option{
+	margin: 0 auto;
+	display: block;
+	cursor: pointer;
+	color: white;
+
+}
